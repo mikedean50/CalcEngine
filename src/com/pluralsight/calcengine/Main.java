@@ -12,7 +12,32 @@ public class Main {
 
 		for (MathEquation equation : equations) {
 			equation.execute();
+			System.out.print("Result = ");
 			System.out.println(equation.getResult());
 		}
+		System.out.println();
+		System.out.println("Using overloads");
+		System.out.println();
+
+		double leftDouble = 9.0d;
+		double rightDouble = 4.0d;
+
+		int leftInt = 9;
+		int rightInt = 4;
+
+		MathEquation equationOverload = new MathEquation('d');
+
+		equationOverload.execute(leftDouble, rightDouble);
+		System.out.print("Result = ");
+		System.out.println(equationOverload.getResult());
+
+		equationOverload.execute(leftInt, rightInt);
+		System.out.print("Result = ");
+		System.out.println(equationOverload.getResult());
+
+		//Will overload to Double, Double to prevent narrowing conversion of double to int type
+		equationOverload.execute(leftDouble, rightInt);
+		System.out.print("Result = ");
+		System.out.println(equationOverload.getResult());
 	}
 }
